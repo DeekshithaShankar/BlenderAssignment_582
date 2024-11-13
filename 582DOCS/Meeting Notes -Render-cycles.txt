@@ -1,0 +1,34 @@
+Meeting Notes for2024-11-12 Render & Cycles Meeting
+
+For 4.3
+Phase functions
+Need images for the phase functions
+Lukas reached out to some artists and they’ll send some images, which is great!
+Lukas and Sebastian will make the underwater caustics scene small and usable for all sorts of tests and comparisons
+Manual update for phase functions
+Ensure new functions are listed and should be easy to tackle
+Images are great, but can come later
+Path guiding might need tweaking: use RIS for volume as well
+Crashes, when using Smoke and cycles (AMD HIP) #126566
+WIP: Handling SDK/ROCm 6+ lack of backward compatibility with pre ROCm 6 #130153
+Overall seems the safest for 4.3, and 4.2
+For 4.3 allow this “mixed” configurations (Windows builders uses ROCm 5, while Linux builders are ROCm6)
+For the JIT kernel compilation assume ROCm6. If ROCm 5 is detected return an error
+blender_debug_cycles.bat
+Seems the solution everyone is fine with
+Need to communicate to the triaging team, to ensure the best quality of Cycles information is provided
+Embree crash on Simplify toggle #129596
+Fix requires upgrade Embree
+Not specific to 4.3. Annoying, safest is to tackle for 4.4
+For the 4.2 it is not impossible to backport fix and library update. But best is to re-evaluate it when the fix is ready for 4.4
+Other
+Weizhen: Cycles: Unbiased volume rendering #128389
+Getting closer to a state when we can split off octtree part to separate PR, and aim for landing
+Lukas: WIP: Cycles: Support for custom OSL cameras #129495
+Lead to general OSL improvements:
+Cycles: Use fused OptiX OSL programs #130149
+Cycles: Make OSL shader compilation threadsafe and multi-threaded #130133
+Compositor Denoising on GPU
+Tricky part: select which GPU to use
+But work is going!
+Library updates: Update OpenPGL to latest version for WoA
